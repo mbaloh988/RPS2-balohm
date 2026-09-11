@@ -20,7 +20,7 @@ py -m venv .venv
 3. Varno naložimo knjižnice, od katerih je projekt odvisen. Morda datoteke `requirements.txt` še nimamo.
 ```
 cd dependencies
-pip install -r requirements-noversion.txt
+pip install -r requirements.txt
 ```
 
 ## Linux SHELL
@@ -55,7 +55,7 @@ Vsebina datoteke `requirements.txt` naj bo za enkrat:
 flask
 mysql-connector-python
 ```
-Morda v prihodnje dodamo še kakšno knjižnico.
+Morda v prihodnje dodamo še kakšno knjižnico. Pravično je da povemo, da so tukaj zabeležene knjižnice brez zaklenjene verzije in se bo vedno naložila najnovejša. Kar nam ustreza.
 
 ## Kaj pa sedaj?
 Takoj ko je virtualno okolje postavljeno, lahko naložimo knjižnice. Pojdi na korak 3. v poglavju virtualno okolje.
