@@ -1,5 +1,9 @@
+# LIBRARIES
 from flask import Flask
 from flask import render_template
+
+# MY LIBRARIES
+from module import dbLogic
 
 app = Flask(__name__)
 
@@ -10,7 +14,11 @@ APP_PORT = 80
 
 @app.route("/", methods = ["GET", "POST"])
 def hello_world():
-    return render_template("index.html")
+    data = {
+        "uspeh" : False
+    }
+    data["uspeh"] = dbLogic.getAll()
+    return render_template("index.html", podatki = data)
 
 
 # ZAGON APLIKACIJE
