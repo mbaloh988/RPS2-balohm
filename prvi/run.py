@@ -1,6 +1,7 @@
 # LIBRARIES
 from flask import Flask
 from flask import render_template
+from flask import request
 
 # MY LIBRARIES
 from module import dbLogic
@@ -13,13 +14,28 @@ APP_PORT = 80
 # GLAVNI ROUTE APLIKACIJE
 
 @app.route("/", methods = ["GET", "POST"])
-def hello_world():
+def index():
     data = {
-        "uspeh" : False
+        "uspeh" : False,
+        "itm" : None,
+        "teza": "",
+        "visina": ""
     }
     data["uspeh"] = dbLogic.getAll()
+    if request.method == "POST":
+        data["teza"] = request.form.get("teza")
+        data["visina"] = request.form.get("visina")
+        
+        if data["teza"] and data["visina"]:
+            data["itm"] = izracunaj_itm(float(data["visina"]), float(data["teza"]))
+        print(data)
+    
     return render_template("index.html", podatki = data)
 
+
+def izracunaj_itm(visinaCm, tezaKg):
+    itm = tezaKg / (visinaCm/100) ** 2
+    return itm
 
 # ZAGON APLIKACIJE
 app.config["DEBUG"] = True

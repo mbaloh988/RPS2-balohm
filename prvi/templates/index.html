@@ -14,6 +14,20 @@
 {% endif %}
 
 <img src="{{url_for('static', filename='logo.svg')}}" alt="my logo" width="300" height="300">
+<br><br>
+<form action="/" method="POST">
+  <label for="visinaID">Višina (cm):</label><br>
+  <input type="text" id="visinaID" name="visina" value="{{podatki['visina']}}"><br>
+  <label for="tezaID">Teža (kg):</label><br>
+  <input type="text" id="tezaID" name="teza" value="{{podatki['teza']}}"><br><br>
+  <input type="submit" value="IZRAČUNAJ">
+</form>
+
+{% if podatki['itm'] %}
+<i>Vaš ITM je {{podatki['itm']}}</i>
+{% endif %}
+
+
 
 </body>
 </html>
