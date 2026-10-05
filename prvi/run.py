@@ -21,7 +21,6 @@ def index():
         "teza": "",
         "visina": ""
     }
-    data["uspeh"] = dbLogic.getAll()
     if request.method == "POST":
         data["teza"] = request.form.get("teza")
         data["visina"] = request.form.get("visina")
@@ -33,7 +32,15 @@ def index():
     
     return render_template("index.html", podatki = data)
 
-
+@app.route("/dnevnik", methods = ["GET", "POST"])
+def dnevnik():
+    data = {
+        "seznam" : [],
+    }
+    data["seznam"] = dbLogic.getAll()
+    return render_template("dnevnik.html", podatki = data)
+    
+    
 def izracunaj_itm(visinaCm, tezaKg):
     itm = tezaKg / (visinaCm/100) ** 2
     return itm
