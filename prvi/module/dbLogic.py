@@ -23,3 +23,25 @@ def getAll(koda = ""):
         return False
     finally:
         pass
+        
+def insertData(visina, teza, itm):
+    
+    sql = """
+    INSERT INTO dnevnik (datumcas, visina, teza, itm)
+    VALUES (NOW(), {}, {}, {});
+    """.format(visina, teza, itm)
+    vrniID = -1
+    
+    try:
+        mydb = dbConfig.dbConnect()
+        cursor = mydb.cursor()
+        cursor.execute(sql)
+        mydb.commit()
+        vrniID = cursor.lastrowid
+        return vrniID
+    except:
+        mydb.rollback()
+        return vrniID
+    finally:
+        cursor.close()
+        mydb.close()
