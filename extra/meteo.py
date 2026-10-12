@@ -35,8 +35,8 @@ def vse_temperature(kraji):
 
 def vrniKraj(vsi, iskana_koordinata: tuple[float,float]):
     najblizji_kraj = min(
-        kraji.keys(),
-        key=lambda k: math.dist(kraji[k], iskana_koordinata)
+        vsi.keys(),
+        key=lambda k: math.dist(vsi[k], iskana_koordinata)
     )
 
     return najblizji_kraj
@@ -74,7 +74,7 @@ def main2():
 
 def main1():
     # Primer uporabe:
-    print(poisci_najblizji_kraj(46.0569, 14.5058))  # Izpis: Ljubljana
+    print(najdi_na_spletu(46.0569, 14.5058))  # Izpis: Ljubljana
      
     kraji = {
         "Ljubljana":  (46.0569, 14.5058),
@@ -119,4 +119,4 @@ def main1():
 
 
 if __name__ == "__main__":
-    main2()
+    main1()
