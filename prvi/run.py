@@ -40,7 +40,13 @@ def dnevnik():
     data["seznam"] = dbLogic.getAll()
     return render_template("dnevnik.html", podatki = data)
     
-    
+# NOVO !!!
+@app.route("/izbrisi/<sID>")
+def dnevnik_izbirsi(sID):
+    ID = int(sID)
+    dbLogic.deleteItm(ID)
+    return redirect("/dnevnik")
+
 def izracunaj_itm(visinaCm, tezaKg):
     itm = tezaKg / (visinaCm/100) ** 2
     return itm
