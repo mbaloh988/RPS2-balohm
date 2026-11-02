@@ -13,6 +13,7 @@ app = Flask(__name__)
 APP_ADDRESS = "127.0.0.1"
 APP_PORT = 80
 
+# URL POVEZAVE
 URL_DNEVNIK = "http://" + str(APP_ADDRESS) + ":" + str(APP_PORT) + "/dnevnik"
 
 # GLAVNI ROUTE APLIKACIJE
