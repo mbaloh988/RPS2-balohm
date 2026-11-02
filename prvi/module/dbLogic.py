@@ -44,3 +44,23 @@ def insertData(visina, teza, itm):
     finally:
         cursor.close()
         mydb.close()
+        
+def deleteItm(id):
+    
+    sql = """
+    DELETE FROM dnevnik 
+        WHERE ID = {};
+    """.format(id)
+    
+    try:
+        mydb = dbConfig.dbConnect()
+        cursor = mydb.cursor()
+        cursor.execute(sql)
+        mydb.commit()
+        return True
+    except:
+        mydb.rollback()
+        return False
+    finally:
+        cursor.close()
+        mydb.close()

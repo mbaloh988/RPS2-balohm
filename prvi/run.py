@@ -2,14 +2,18 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import redirect
+
 
 # MY LIBRARIES
 from module import dbLogic
 
 app = Flask(__name__)
 
-APP_ADDRESS = "0.0.0.0"
+APP_ADDRESS = "127.0.0.1"
 APP_PORT = 80
+
+URL_DNEVNIK = "http://" + str(APP_ADDRESS) + ":" + str(APP_PORT) + "/dnevnik"
 
 # GLAVNI ROUTE APLIKACIJE
 
@@ -45,7 +49,7 @@ def dnevnik():
 def dnevnik_izbirsi(sID):
     ID = int(sID)
     dbLogic.deleteItm(ID)
-    return redirect("/dnevnik")
+    return redirect(URL_DNEVNIK)
 
 def izracunaj_itm(visinaCm, tezaKg):
     itm = tezaKg / (visinaCm/100) ** 2
