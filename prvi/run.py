@@ -50,6 +50,7 @@ def dnevnik():
 def dnevnik_izbirsi(sID):
     ID = int(sID)
     dbLogic.deleteItm(ID)
+    # OBVETNO POSKRBI DA JE ZGORAJ NAPISAN IMPORT in KONSTANTA
     return redirect(URL_DNEVNIK)
 
 def izracunaj_itm(visinaCm, tezaKg):
