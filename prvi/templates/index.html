@@ -8,12 +8,12 @@
 <h1>My First Template</h1>
 <p>Hello 2.Ri! ♥</p>
 {% if podatki['uspeh'] %}
-<i>Uspešno sem se povezal na database.</i>
+<i><b>Uspešno</b> sem se povezal na database.</i>
 {% else %}
 <i><b>Neuspešno</b> sem se povezal na database.</i>
 {% endif %}
 
-<img src="{{url_for('static', filename='logo.svg')}}" alt="my logo" width="300" height="300">
+<!-- img src="{{url_for('static', filename='logo.svg')}}" alt="my logo" width="300" height="300" -->
 <br><br>
 <form action="/" method="POST">
   <label for="visinaID">Višina (cm):</label><br>
@@ -27,6 +27,7 @@
 <i>Vaš ITM je {{podatki['itm']}}</i>
 {% endif %}
 
+<br><a href="/dnevnik">dnevnik</a>
 
 
 </body>

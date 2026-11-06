@@ -2,7 +2,7 @@
 -- Strežnik:                     127.0.0.1
 -- Verzija strežnika:            10.4.24-MariaDB - mariadb.org binary distribution
 -- Operacijski sistem strežnika: Win64
--- HeidiSQL Različica:           12.11.0.7065
+-- HeidiSQL Različica:           12.18.0.7304
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,10 +28,11 @@ CREATE TABLE IF NOT EXISTS `dnevnik` (
   `visina` float DEFAULT NULL,
   `teza` float DEFAULT NULL,
   `itm` float DEFAULT NULL,
+  `IsDeleted` int(1) DEFAULT 0,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
--- Dumping data for table itm.dnevnik: ~0 rows (približno)
+-- Data exporting was unselected.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

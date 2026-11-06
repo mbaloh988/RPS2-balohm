@@ -26,6 +26,8 @@ def index():
         "teza": "",
         "visina": ""
     }
+    
+    data["uspeh"] = dbLogic.isConnected()
     if request.method == "POST":
         data["teza"] = request.form.get("teza")
         data["visina"] = request.form.get("visina")
@@ -50,8 +52,14 @@ def dnevnik():
 def dnevnik_izbirsi(sID):
     ID = int(sID)
     dbLogic.deleteItm(ID)
-    # OBVETNO POSKRBI DA JE ZGORAJ NAPISAN IMPORT in KONSTANTA
     return redirect(URL_DNEVNIK)
+
+@app.route("/arhiviraj/<sID>")
+def dnevnik_arhiviraj(sID):
+    ID = int(sID)
+    dbLogic.softDeleteItm(ID)
+    return redirect(URL_DNEVNIK)
+
 
 def izracunaj_itm(visinaCm, tezaKg):
     itm = tezaKg / (visinaCm/100) ** 2
